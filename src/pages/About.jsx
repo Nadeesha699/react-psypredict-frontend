@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 const About = () => {
   const navigate = useNavigate()
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row gap-10">
+    <div className="bg-gray-900 h-dvh flex flex-row">
       <div className="flex flex-col gap-20 p-10">
         <div className="flex flex-row gap-10 justify-start items-center">
           <BsArrowLeftCircle size={40} color="white" onClick={()=>{navigate('/')}}/>

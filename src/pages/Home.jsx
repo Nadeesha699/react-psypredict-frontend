@@ -21,7 +21,7 @@ const Home = () => {
         </label>
       </div>
       <div className="flex flex-row justify-evenly">
-        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer">
+        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer" onClick={()=>{navigate('/depression-check')}}>
           <img
             src={DepressionImage}
             alt="depression-image"
@@ -31,7 +31,7 @@ const Home = () => {
             check depression
           </label>
         </div>
-        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer">
+        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer" onClick={()=>{navigate('/migraine-check')}}>
           <img
             src={MigraineImage}
             alt="migraine-image"
@@ -39,7 +39,7 @@ const Home = () => {
           />
           <label className="text-white text-sm font-bold">check migraine</label>
         </div>
-        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer">
+        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer" onClick={()=>{navigate('/diabetic-check')}}>
           <img
             src={DiabeticImage}
             alt="diabetic-image"
@@ -47,7 +47,7 @@ const Home = () => {
           />
           <label className="text-white text-sm font-bold">check diabetic</label>
         </div>
-        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer">
+        <div className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer" onClick={()=>{navigate('/lungcancer-check')}}>
           <img
             src={LungCancerImage}
             alt="lungcancer-image"
