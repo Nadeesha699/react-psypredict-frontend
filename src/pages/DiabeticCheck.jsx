@@ -1,6 +1,8 @@
 const DiabeticCheck = () =>{
     return(
-        <div></div>
+        <div>
+            
+        </div>
     )
 }
 
