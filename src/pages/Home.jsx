@@ -33,7 +33,7 @@ const Home = () => {
             className="w-1/2 h-1/2"
           />
           <label className="text-white text-sm font-bold">
-            check depression
+            Depression Checker
           </label>
         </div>
         <div
@@ -47,7 +47,7 @@ const Home = () => {
             alt="migraine-image"
             className="w-1/2 h-1/2"
           />
-          <label className="text-white text-sm font-bold">check migraine</label>
+          <label className="text-white text-sm font-bold">Migraine Checker</label>
         </div>
         <div
           className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
@@ -74,7 +74,7 @@ const Home = () => {
             className="w-1/2 h-1/2"
           />
           <label className="text-white text-sm font-bold">
-            check lung cancer
+           Lungcancer Checker
           </label>
         </div>
       </div>
