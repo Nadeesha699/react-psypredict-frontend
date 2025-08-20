@@ -6,17 +6,23 @@ import Swal from "sweetalert2";
 
 const DepressionCheck = () => {
   const navigate = useNavigate();
-  const [preg, setPreg] = useState(0);
-    const [glu, setGlu] = useState(0);
-    const [blpres, setBlPres] = useState(0);
-    const [skthick, setSkThik] = useState(0);
-    const [insulin, setInsulin] = useState("");
-    const [bmi, setBmi] = useState(0.0);
-    const [diafun, setDiaFun] = useState("");
-    const [age, setAge] = useState(0);
+  const [gender, setGender] = useState("");
+  const [profession, setProfession] = useState("");
+  const [academicPres, setAcademicPres] = useState(0);
+  const [workPres, setWorkPres] = useState(0);
+  const [cgpa, setCGPA] = useState(0);
+  const [studySatis, setStudySatis] = useState(0);
+  const [jobSatis, setJobSatis] = useState(0);
+  const [sleepDur, setSleepDur] = useState("");
+  const [dietaryH, setDietaryH] = useState("");
+  const [sui, setSui] = useState("");
+  const [sHours, setSHours] = useState(0);
+  const [finStress, setFinStress] = useState(0);
+  const [mIll, setMIll] = useState("");
+  const [age, setAge] = useState(0);
 
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-full flex flex-row justify-between p-10 gap-10">
       <div className="w-3/4 flex flex-col gap-10">
         <div className="flex flex-row gap-10 justify-start items-center">
           <BsArrowLeftCircle
@@ -32,110 +38,112 @@ const DepressionCheck = () => {
         </div>
         <div className="flex flex-col gap-5 ">
           <div className="flex flex-col">
+            <label className="text-white font-bold">Gender</label>
+            <select
+            className="w-1/2 rounded-3xl"
+              value={gender}
+              onChange={(e) => {
+                setGender(e.target.value);
+              }}
+            >
+              <option value="" >Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">Proffession</label>
+            <select
+             className="w-1/2 rounded-3xl"
+              value={profession}
+              onChange={(e) => {
+                setProfession(e.target.value);
+              }}
+            >
+              <option value="">Select</option>
+              <option value="Student">Student</option>
+              <option value="Employed">Employed</option>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
             <label className="text-white font-bold">
-              Number of Pregnancies{" "}
-              <span className="text-indigo-600">{preg}</span>
+              Academic Pressure
+              <span className="text-indigo-600"> {academicPres}</span>
             </label>
             <input
               className="accent-indigo-700"
               type="range"
               min="0"
-              max="20"
-              value={preg}
+              max="5"
+              value={academicPres}
               onChange={(e) => {
-                setPreg(e.target.value);
+                setAcademicPres(e.target.value);
               }}
             />
           </div>
           <div className="flex flex-col">
             <label className="text-white font-bold">
-              Glucose Level <span className="text-indigo-600">{glu}</span>
+              Work Pressure 
+              <span className="text-indigo-600"> {workPres}</span>
             </label>
             <input
               className="accent-indigo-700"
               type="range"
               min="0"
-              max="300"
-              value={glu}
+              max="5"
+              value={workPres}
               onChange={(e) => {
-                setGlu(e.target.value);
+                setWorkPres(e.target.value);
               }}
             />
           </div>
           <div className="flex flex-col">
             <label className="text-white font-bold">
-              Blood Pressure (mmHg){" "}
-              <span className="text-indigo-600">{blpres}</span>
+              CGPA <span className="text-indigo-600">{cgpa}</span>
             </label>
             <input
               className="accent-indigo-700"
-              type="range"
-              min="40"
-              max="200"
-              value={blpres}
-              onChange={(e) => {
-                setBlPres(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Skin Thickness (mm){" "}
-              <span className="text-indigo-600">{skthick}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="100"
-              value={skthick}
-              onChange={(e) => {
-                setSkThik(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Insulin Level (µU/ml)
-            </label>
-            <input
-              className="bg-white rounded-3xl p-2 w-1/2"
-              placeholder="0 - 900"
-              type="number"
-              value={insulin}
-              onChange={(e) => {
-                setInsulin(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              BMI <span className="text-indigo-600">{bmi}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="10"
-              max="70"
-              step="0.1"
-              value={bmi}
-              onChange={(e) => {
-                setBmi(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Diabetes Pedigree Score
-            </label>
-            <input
-              className="bg-white rounded-3xl p-1 w-1/2"
-              type="number"
               step="0.01"
-              placeholder="e.g. 0.234"
-              value={diafun}
+              min="0"
+              max="10"
+              type="range"
+              value={cgpa}
               onChange={(e) => {
-                setDiaFun(e.target.value);
+                setCGPA(e.target.value);
+              }}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">
+              Job Satisfaction{" "}
+              <span className="text-indigo-600">{jobSatis}</span>
+            </label>
+            <input
+              className="accent-indigo-700"
+              type="range"
+              min="0"
+              max="5"
+              value={jobSatis}
+              onChange={(e) => {
+                setJobSatis(e.target.value);
+              }}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">
+              Study Satisfaction{" "}
+              <span className="text-indigo-600">{studySatis}</span>
+            </label>
+            <input
+              className="accent-indigo-700"
+              type="range"
+              min="0"
+              max="5"
+              value={studySatis}
+              onChange={(e) => {
+                setStudySatis(e.target.value);
               }}
             />
           </div>
@@ -154,45 +162,147 @@ const DepressionCheck = () => {
               }}
             />
           </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">Sleep Duration</label>
+            <select
+             className="w-1/2 rounded-3xl"
+              value={sleepDur}
+              onChange={(e) => {
+                setSleepDur(e.target.value);
+              }}
+            >
+              <option value="">Select</option>
+              <option value="Less than 5 hours">Less than 5 hours</option>
+              <option value="5-6 hours">5-6 hours</option>
+              <option value="7-8 hours">7-8 hours</option>
+              <option value="More than 8 hours">More than 8 hours</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">Dietary Habits</label>
+            <select
+             className="w-1/2 rounded-3xl"
+              value={dietaryH}
+              onChange={(e) => {
+                setDietaryH(e.target.value);
+              }}
+            >
+              <option value="">Select</option>
+              <option value="Healthy">Healthy</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Unhealthy">Unhealthy</option>
+            </select>
+          </div>
+          
+          <div className="flex flex-col">
+            <label className="text-white font-bold">
+              Suicidal Thoughts ?
+            </label>
+            <select
+             className="w-1/2 rounded-3xl"
+              value={sui}
+              onChange={(e) => {
+                setSui(e.target.value);
+              }}
+            >
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">
+              Family History of Mental Illness ?
+            </label>
+            <select
+             className="w-1/2 rounded-3xl"
+              value={mIll}
+              onChange={(e) => {
+                setMIll(e.target.value);
+              }}
+            >
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">
+              Work/Study Hours <span className="text-indigo-600">{sHours}</span>
+            </label>
+            <input
+              className="accent-indigo-700"
+              type="range"
+              step="0.5"
+              min="0"
+              max="16"
+              value={sHours}
+              onChange={(e) => {
+                setSHours(e.target.value);
+              }}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-white font-bold">
+              Financial Stress{" "}
+              <span className="text-indigo-600">{finStress}</span>
+            </label>
+            <input
+              className="accent-indigo-700"
+              type="range"
+              min="0"
+              max="10"
+              value={finStress}
+              onChange={(e) => {
+                setFinStress(e.target.value);
+              }}
+            />
+          </div>
           <button
             className="bg-indigo-600 p-2 rounded-3xl font-bold w-1/6 text-white"
             onClick={async () => {
               try {
                 const resp = await axios.post(
-                  `http://127.0.0.1:5000/api/get-diabetic-prediction`,
+                  `http://127.0.0.1:5000/api/get-depression-predition`,
                   {
-                    Pregnancies: preg,
-                    Glucose: glu,
-                    BloodPressure: blpres,
-                    SkinThickness: skthick,
-                    Insulin: insulin,
-                    BMI: bmi,
-                    DiabetesPedigreeFunction: diafun,
+                    Gender: gender,
                     Age: age,
+                    Profession: profession,
+                    "Academic Pressure": academicPres,
+                    "Work Pressure": workPres,
+                    CGPA: cgpa,
+                    "Study Satisfaction": studySatis,
+                    "Job Satisfaction": jobSatis,
+                    "Sleep Duration": sleepDur,
+                    "Dietary Habits": dietaryH,
+                    "Have you ever had suicidal thoughts ?": sui,
+                    "Work/Study Hours": sHours,
+                    "Financial Stress": finStress,
+                    "Family History of Mental Illness": mIll,
                   }
                 );
-                resp.data.result === "Non-Diabetic"
+                resp.data.result === "Non-Depression"
                   ? Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "You are likely not diabetic. Keep maintaining a healthy lifestyle!",
+                      title: "Depression Check Result",
+                      text: "You are likely not Depression. Keep maintaining a healthy lifestyle!",
                       icon: "success",
                     })
-                  : resp.data.result === "Diabetic"
+                  : resp.data.result === "Depression"
                   ? Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "You may have diabetes. Please consult a doctor for proper diagnosis.",
+                      title: "Depression Check Result",
+                      text: "You may have Depression. Please consult a doctor for proper diagnosis.",
                       icon: "warning",
                     })
                   : Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "Unable to determine your diabetes status. Please check your inputs.",
+                      title: "Depression Check Result",
+                      text: "Unable to determine your Depression status. Please check your inputs.",
                       icon: "info",
                     });
               } catch (e) {
                 console.log(e.message);
                 Swal.fire({
-                  title: "Diabetes Check Result",
-                  text: "Unable to determine your diabetes status. Please check your inputs.",
+                  title: "Depression Check Result",
+                  text: "Unable to determine your Depression status. Please check your inputs.",
                   icon: "info",
                 });
               }
