@@ -290,19 +290,19 @@ const DepressionCheck = () => {
                   : resp.data.result === "Depression"
                   ? Swal.fire({
                       title: "Depression Check Result",
-                      text: "You may have Depression. Please consult a doctor for proper diagnosis.",
+                      text: "You may be experiencing signs of depression. Please consult a medical professional for proper guidance.",
                       icon: "warning",
                     })
                   : Swal.fire({
                       title: "Depression Check Result",
-                      text: "Unable to determine your Depression status. Please check your inputs.",
+                      text: "We couldn't determine your depression status. Please review your inputs and try again.",
                       icon: "info",
                     });
               } catch (e) {
                 console.log(e.message);
                 Swal.fire({
                   title: "Depression Check Result",
-                  text: "Unable to determine your Depression status. Please check your inputs.",
+                  text: "We couldn't determine your depression status. Please review your inputs and try again.",
                   icon: "info",
                 });
               }
