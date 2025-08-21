@@ -3,20 +3,37 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { FaQuestionCircle } from "react-icons/fa";
 
 const MigraineCheck = () => {
   const navigate = useNavigate();
-  const [preg, setPreg] = useState(0);
-    const [glu, setGlu] = useState(0);
-    const [blpres, setBlPres] = useState(0);
-    const [skthick, setSkThik] = useState(0);
-    const [insulin, setInsulin] = useState("");
-    const [bmi, setBmi] = useState(0.0);
-    const [diafun, setDiaFun] = useState("");
-    const [age, setAge] = useState(0);
+
+  const [age, setAge] = useState(0);
+  const [duration, setDuration] = useState(1);
+  const [frequency, setFrequency] = useState(1);
+  const [location, setLocation] = useState(1);
+  const [character, setCharacter] = useState(1);
+  const [intensity, setIntensity] = useState(1);
+  const [nausea, setNausea] = useState(0);
+  const [vomit, setVomit] = useState(0);
+  const [phonophobia, setPhonophobia] = useState(0);
+  const [photophobia, setPhotophobia] = useState(0);
+  const [visual, setVisual] = useState(0);
+  const [sensory, setSensory] = useState(0);
+  const [dysphasia, setDysphasia] = useState(0);
+  const [dysarthria, setDysarthria] = useState(0);
+  const [vertigo, setVertigo] = useState(0);
+  const [tinnitus, setTinnitus] = useState(0);
+  const [hypoacusis, setHypoacusis] = useState(0);
+  const [diplopia, setDiplopia] = useState(0);
+  const [defect, setDefect] = useState(0);
+  const [ataxia, setAtaxia] = useState(0);
+  const [conscience, setConscience] = useState(0);
+  const [paresthesia, setParesthesia] = useState(0);
+  const [dpf, setDPF] = useState(0);
 
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-full flex flex-row justify-between p-10 gap-10">
       <div className="w-3/4 flex flex-col gap-10">
         <div className="flex flex-row gap-10 justify-start items-center">
           <BsArrowLeftCircle
@@ -32,112 +49,364 @@ const MigraineCheck = () => {
         </div>
         <div className="flex flex-col gap-5 ">
           <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Number of Pregnancies{" "}
-              <span className="text-indigo-600">{preg}</span>
-            </label>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+              <label className="text-white font-bold">Duration</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <span className="text-indigo-600"> {duration}</span>
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                How long does each headache last? (1 = short, 5 = very long)
+              </div>
+            </div>
             <input
               className="accent-indigo-700"
               type="range"
-              min="0"
-              max="20"
-              value={preg}
+              min="1"
+              max="5"
+              value={duration}
               onChange={(e) => {
-                setPreg(e.target.value);
+                setDuration(e.target.value);
               }}
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Glucose Level <span className="text-indigo-600">{glu}</span>
-            </label>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+              <label className="text-white font-bold">Frequency</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <span className="text-indigo-600"> {duration}</span>
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                How often headaches occur ? ( 1 = rare, 5 = very frequent )
+              </div>
+            </div>
             <input
               className="accent-indigo-700"
               type="range"
-              min="0"
-              max="300"
-              value={glu}
+              min="1"
+              max="5"
+              value={frequency}
               onChange={(e) => {
-                setGlu(e.target.value);
+                setFrequency(e.target.value);
               }}
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Blood Pressure (mmHg){" "}
-              <span className="text-indigo-600">{blpres}</span>
-            </label>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+              <label className="text-white font-bold">Intensity</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <span className="text-indigo-600"> {duration}</span>
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                How strong is the headache ? ( 1 = mild, 5 = severe )
+              </div>
+            </div>
             <input
               className="accent-indigo-700"
               type="range"
-              min="40"
-              max="200"
-              value={blpres}
+              min="1"
+              max="5"
+              value={intensity}
               onChange={(e) => {
-                setBlPres(e.target.value);
+                setIntensity(e.target.value);
               }}
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Skin Thickness (mm){" "}
-              <span className="text-indigo-600">{skthick}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="100"
-              value={skthick}
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+              <label className="text-white font-bold">Location</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Choose where the headache is usually felt.
+              </div>
+            </div>
+            <select
+              className="w-1/2 rounded-3xl"
+              value={location}
               onChange={(e) => {
-                setSkThik(e.target.value);
+                setLocation(e.target.value);
               }}
-            />
+            >
+              <option value={1}>One side of head (unilateral)</option>
+              <option value={2}>Both sides (bilateral)</option>
+              <option value={3}>Back of head</option>
+              <option value={4}>Front / forehead</option>
+              <option value={5}>Around eyes / temple</option>
+            </select>
           </div>
           <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Insulin Level (µU/ml)
-            </label>
-            <input
-              className="bg-white rounded-3xl p-2 w-1/2"
-              placeholder="0 - 900"
-              type="number"
-              value={insulin}
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+              <label className="text-white font-bold">Character</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Choose how the headache pain feels.
+              </div>
+            </div>
+            <select
+              className="w-1/2 rounded-3xl"
+              value={character}
               onChange={(e) => {
-                setInsulin(e.target.value);
+                setCharacter(e.target.value);
               }}
-            />
+            >
+              <option value={1}>Throbbing / pulsating</option>
+              <option value={2}>Pressure / tight band</option>
+              <option value={3}>Stabbing / sharp</option>
+              <option value={4}>Dull ache</option>
+              <option value={5}>Mixed / other</option>
+            </select>
           </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              BMI <span className="text-indigo-600">{bmi}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="10"
-              max="70"
-              step="0.1"
-              value={bmi}
-              onChange={(e) => {
-                setBmi(e.target.value);
-              }}
-            />
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Nausea</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Feeling sick to stomach
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={nausea === 1}
+                onChange={(e) => {
+                  setNausea(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Vomit</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Actually vomiting
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={vomit === 1}
+                onChange={(e) => {
+                  setVomit(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Diabetes Pedigree Score
-            </label>
-            <input
-              className="bg-white rounded-3xl p-1 w-1/2"
-              type="number"
-              step="0.01"
-              placeholder="e.g. 0.234"
-              value={diafun}
-              onChange={(e) => {
-                setDiaFun(e.target.value);
-              }}
-            />
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Phonophobia</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Headache worsens with noise
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={phonophobia === 1}
+                onChange={(e) => {
+                  setPhonophobia(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Photophobia</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Actually vomiting
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={photophobia === 1}
+                onChange={(e) => {
+                  setPhotophobia(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Visual</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Vision problems (flashes, spots)
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={visual === 1}
+                onChange={(e) => {
+                  setVisual(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Sensory</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Numbness or tingling in body
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={sensory === 1}
+                onChange={(e) => {
+                  setSensory(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Dysphasia</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Difficulty finding words
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={dysphasia === 1}
+                onChange={(e) => {
+                  setDysphasia(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Dysarthria</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Slurred speech
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={dysarthria === 1}
+                onChange={(e) => {
+                  setDysarthria(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Vertigo</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Spinning or dizziness
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={vertigo === 1}
+                onChange={(e) => {
+                  setVertigo(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Tinnitus</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Ringing in ears
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={tinnitus === 1}
+                onChange={(e) => {
+                  setTinnitus(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Hypoacusis</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Reduced hearing
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={hypoacusis === 1}
+                onChange={(e) => {
+                  setHypoacusis(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Diplopia</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Double vision
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={diplopia === 1}
+                onChange={(e) => {
+                  setDiplopia(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Defect</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Partial vision loss
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={defect === 1}
+                onChange={(e) => {
+                  setDefect(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Ataxia</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Balance problems
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={ataxia === 1}
+                onChange={(e) => {
+                  setAtaxia(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-row">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Conscience</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Fainting or confusion
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={conscience === 1}
+                onChange={(e) => {
+                  setConscience(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <label className="text-white font-bold">Paresthesia</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Pins & needles sensation
+              </div>
+              <input
+                type="checkbox"
+                className="accent-indigo-700"
+                checked={paresthesia === 1}
+                onChange={(e) => {
+                  setParesthesia(e.target.checked ? 1 : 0);
+                }}
+              />
+            </div>
           </div>
           <div className="flex flex-col">
             <label className="text-white font-bold">
@@ -154,45 +423,105 @@ const MigraineCheck = () => {
               }}
             />
           </div>
+          <div className="flex flex-col">
+            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+              <label className="text-white font-bold">DPF</label>
+              <FaQuestionCircle color="white" className="cursor-white" />
+              <span className="text-indigo-600"> {dpf}</span>
+              <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                Duration of aura symptoms before headache (0 = none, 5 = very
+                long).
+              </div>
+            </div>
+            <input
+              className="accent-indigo-700"
+              type="range"
+              min="0"
+              max="5"
+              value={dpf}
+              onChange={(e) => {
+                setDPF(e.target.value);
+              }}
+            />
+          </div>
           <button
             className="bg-indigo-600 p-2 rounded-3xl font-bold w-1/6 text-white"
             onClick={async () => {
               try {
                 const resp = await axios.post(
-                  `http://127.0.0.1:5000/api/get-diabetic-prediction`,
+                  `http://127.0.0.1:5000/api/get-migraine-prediction`,
                   {
-                    Pregnancies: preg,
-                    Glucose: glu,
-                    BloodPressure: blpres,
-                    SkinThickness: skthick,
-                    Insulin: insulin,
-                    BMI: bmi,
-                    DiabetesPedigreeFunction: diafun,
                     Age: age,
+                    Duration: duration,
+                    Frequency: frequency,
+                    Location: location,
+                    Character: character,
+                    Intensity: intensity,
+                    Nausea: nausea,
+                    Vomit: vomit,
+                    Phonophobia: phonophobia,
+                    Photophobia: photophobia,
+                    Visual: visual,
+                    Sensory: sensory,
+                    Dysphasia: dysphasia,
+                    Dysarthria: dysarthria,
+                    Vertigo: vertigo,
+                    Tinnitus: tinnitus,
+                    Hypoacusis: hypoacusis,
+                    Diplopia: diplopia,
+                    Defect: defect,
+                    Ataxia: ataxia,
+                    Conscience: conscience,
+                    Paresthesia: paresthesia,
+                    DPF: dpf,
                   }
                 );
-                resp.data.result === "Non-Diabetic"
+                resp.data.result === "Migraine without aura"
                   ? Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "You are likely not diabetic. Keep maintaining a healthy lifestyle!",
-                      icon: "success",
+                      title: "Migraine Check Result",
+                      text: "You have migraine without aura. Consult your doctor if headaches are frequent or severe.",
+                      icon: "info",
                     })
-                  : resp.data.result === "Diabetic"
+                  : resp.data.result === "Typical aura with migraine"
                   ? Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "You may have diabetes. Please consult a doctor for proper diagnosis.",
-                      icon: "warning",
+                      title: "Migraine Check Result",
+                      text: "You have a typical aura with migraine. Keep track of triggers and seek medical advice if needed.",
+                      icon: "info",
+                    })
+                  : resp.data.result === "Basilar-type aura"
+                  ? Swal.fire({
+                      title: "Migraine Check Result",
+                      text: "You have basilar-type aura. This type can affect balance and vision — please consult a doctor.",
+                      icon: "info",
+                    })
+                  : resp.data.result === "Familial hemiplegic migraine"
+                  ? Swal.fire({
+                      title: "Migraine Check Result",
+                      text: "You may have familial hemiplegic migraine, which is rare. Medical evaluation is recommended.",
+                      icon: "info",
+                    })
+                  : resp.data.result === "Sporadic hemiplegic migraine"
+                  ? Swal.fire({
+                      title: "Migraine Check Resulte",
+                      text: "You may have sporadic hemiplegic migraine. Please consult a neurologist for proper assessment",
+                      icon: "info",
+                    })
+                  : resp.data.result === "Typical aura with migraine"
+                  ? Swal.fire({
+                      title: "Migraine Check Result",
+                      text: "You have a typical aura with migraine. Keep track of triggers and consult your doctor if needed.",
+                      icon: "info",
                     })
                   : Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "Unable to determine your diabetes status. Please check your inputs.",
+                      title: "Migraine Check Result",
+                      text: "Unable to determine your migraine type. Please review your inputs.",
                       icon: "info",
                     });
               } catch (e) {
                 console.log(e.message);
                 Swal.fire({
-                  title: "Diabetes Check Result",
-                  text: "Unable to determine your diabetes status. Please check your inputs.",
+                  title: "Migraine Check Result",
+                  text: "Unable to determine your migraine type. Please review your inputs.",
                   icon: "info",
                 });
               }
