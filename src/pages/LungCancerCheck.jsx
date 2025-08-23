@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaQuestionCircle } from "react-icons/fa";
+import { ClipLoader } from "react-spinners";
 
 const LungCancerCheck = () => {
   const navigate = useNavigate();
@@ -22,9 +23,16 @@ const LungCancerCheck = () => {
   const [shortnessOfBreath, setShortnessOfBreath] = useState(0);
   const [swallowingDifficulty, setSwallowingDifficulty] = useState(0);
   const [chestPain, setChestPain] = useState(0);
+   const [loading, setLoading] = useState(false);
 
   return (
     <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+         {loading ? (
+        <div className="w-full h-full flex justify-center items-center">
+          <ClipLoader color="blue" size={100} />{" "}
+        </div>
+      ) : (
+        <>
       <div className="w-3/4 flex flex-col gap-10">
         <div className="flex flex-row gap-10 justify-start items-center">
           <BsArrowLeftCircle
@@ -352,6 +360,7 @@ const LungCancerCheck = () => {
           <button
             className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white"
             onClick={async () => {
+              setLoading(true)
               try {
                 const resp = await axios.post(
                   `http://127.0.0.1:5000/api/get-lung-cancer-prediction`,
@@ -373,6 +382,7 @@ const LungCancerCheck = () => {
                     "CHEST PAIN": chestPain,
                   }
                 );
+                setLoading(false)
                 resp.data.result === "No Signs-Lung Cancer"
                   ? Swal.fire({
                       title: "Lung Cancer Check Resultt",
@@ -391,6 +401,7 @@ const LungCancerCheck = () => {
                       icon: "info",
                     });
               } catch (e) {
+                setLoading(false)
                 console.log(e.message);
                 // Swal.fire({
                 //   title: "Lung Cancer Check Result",
@@ -434,6 +445,7 @@ const LungCancerCheck = () => {
           lifestyle data.
         </p>
       </div>
+      </>)}
     </div>
   );
 };
