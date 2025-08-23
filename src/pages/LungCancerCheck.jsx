@@ -3,17 +3,25 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { FaQuestionCircle } from "react-icons/fa";
 
 const LungCancerCheck = () => {
   const navigate = useNavigate();
-   const [preg, setPreg] = useState(0);
-  const [glu, setGlu] = useState(0);
-  const [blpres, setBlPres] = useState(0);
-  const [skthick, setSkThik] = useState(0);
-  const [insulin, setInsulin] = useState("");
-  const [bmi, setBmi] = useState(0.0);
-  const [diafun, setDiaFun] = useState("");
-  const [age, setAge] = useState(0);
+  const [smoking, setSmoking] = useState(0);
+  const [age,setAge] = useState(0);
+  const [gender, setGender] = useState(0);
+  const [yellowFinger, setYellowFinger] = useState(0);
+  const [anxiety, setAnxiety] = useState(0);
+  const [peerPressure, setPeerPressure] = useState(0);
+  const [chronicDisease, setChronicDisease] = useState(0);
+  const [fatigue, setFatigue] = useState(0);
+  const [allergy, setAllergy] = useState(0);
+  const [wheezing, setWheezing] = useState(0);
+  const [alchoholUse, setAlcholUse] = useState(0);
+  const [coughing, setCoughing] = useState(0);
+  const [shortnessOfBreath, setShortnessOfBreath] = useState(0);
+  const [swallowingDifficulty, setSwallowingDifficulty] = useState(0);
+  const [chestPain, setChestPain] = useState(0);
 
   return (
     <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
@@ -30,145 +38,337 @@ const LungCancerCheck = () => {
             Lungcancer Checker
           </label>
         </div>
-       <div className="flex flex-col gap-5 ">
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Number of Pregnancies{" "}
-              <span className="text-indigo-600">{preg}</span>
-            </label>
-            <input
+        <div className="flex flex-col gap-5 ">
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <label className="text-white font-bold">Gender</label>
+              <select
+                className="rounded-3xl"
+                value={gender}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Male</option>
+                <option value={2}>Female</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+                <label className="text-white font-bold">Age <span>{age}</span></label>
+               <input
               className="accent-indigo-700"
               type="range"
-              min="0"
-              max="20"
-              value={preg}
-              onChange={(e) => {
-                setPreg(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Glucose Level <span className="text-indigo-600">{glu}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="300"
-              value={glu}
-              onChange={(e) => {
-                setGlu(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Blood Pressure (mmHg){" "}
-              <span className="text-indigo-600">{blpres}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="40"
-              max="200"
-              value={blpres}
-              onChange={(e) => {
-                setBlPres(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Skin Thickness (mm){" "}
-              <span className="text-indigo-600">{skthick}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="100"
-              value={skthick}
-              onChange={(e) => {
-                setSkThik(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Insulin Level (µU/ml)
-            </label>
-            <input
-              className="bg-white rounded-3xl p-2 w-1/2"
-              placeholder="0 - 900"
-              type="number"
-              value={insulin}
-              onChange={(e) => {
-                setInsulin(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              BMI <span className="text-indigo-600">{bmi}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="10"
-              max="70"
-              step="0.1"
-              value={bmi}
-              onChange={(e) => {
-                setBmi(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Diabetes Pedigree Score
-            </label>
-            <input
-              className="bg-white rounded-3xl p-1 w-1/2"
-              type="number"
-              step="0.01"
-              placeholder="e.g. 0.234"
-              value={diafun}
-              onChange={(e) => {
-                setDiaFun(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Age <span className="text-indigo-600">{age}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
+              min="1"
               max="120"
               value={age}
               onChange={(e) => {
                 setAge(e.target.value);
               }}
             />
+            </div>
           </div>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Yellow Fingers</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Are your fingers stained yellow (often from smoking)?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={yellowFinger}
+                onChange={(e) => {
+                  setYellowFinger(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Anxiety</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you often feel anxious or nervous?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={anxiety}
+                onChange={(e) => {
+                  setAnxiety(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Peer Pressure</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Have you been pressured by friends/colleagues to smoke or
+                  drink?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={peerPressure}
+                onChange={(e) => {
+                  setPeerPressure(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Chronic Disease</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you have any chronic illness (e.g., diabetes, asthma)?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={chronicDisease}
+                onChange={(e) => {
+                  setChronicDisease(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Fatigue</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you often feel tired or lacking energy?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={fatigue}
+                onChange={(e) => {
+                  setFatigue(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Allergy</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you have frequent allergic reactions?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={allergy}
+                onChange={(e) => {
+                  setAllergy(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Wheezing</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you experience wheezing or noisy breathing?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={wheezing}
+                onChange={(e) => {
+                  setWheezing(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Alcohol Use</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you consume alcohol regularly?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={alchoholUse}
+                onChange={(e) => {
+                  setAlcholUse(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Coughing</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you cough frequently?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={coughing}
+                onChange={(e) => {
+                  setCoughing(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">
+                  Shortness of Breath
+                </label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you experience breathing difficulty when resting or
+                  exercising?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={shortnessOfBreath}
+                onChange={(e) => {
+                  setShortnessOfBreath(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Smoking</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you smoke regularly?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={smoking}
+                onChange={(e) => {
+                  setSmoking(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">
+                  Swallowing Difficulty
+                </label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you struggle to swallow food or liquids?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={swallowingDifficulty}
+                onChange={(e) => {
+                  setSwallowingDifficulty(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Chest Pain</label>
+                <FaQuestionCircle color="white" className="cursor-white" />
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Do you experience chest pain often?
+                </div>
+              </div>
+              <select
+                className="rounded-3xl"
+                value={chestPain}
+                onChange={(e) => {
+                  setChestPain(e.target.value);
+                }}
+              >
+                <option value={0}>Select</option>
+                <option value={1}>Yes</option>
+                <option value={2}>No</option>
+              </select>
+            </div>
+          </div>
+          
           <button
             className="bg-indigo-600 p-2 rounded-3xl font-bold w-1/6 text-white"
             onClick={async () => {
               try {
                 const resp = await axios.post(
-                  `http://127.0.0.1:5000/api/get-diabetic-prediction`,
+                  `http://127.0.0.1:5000/api/get-lung-cancer-prediction`,
                   {
-                    Pregnancies: preg,
-                    Glucose: glu,
-                    BloodPressure: blpres,
-                    SkinThickness: skthick,
-                    Insulin: insulin,
-                    BMI: bmi,
-                    DiabetesPedigreeFunction: diafun,
-                    Age: age,
+                    GENDER: gender,
+                    AGE: age,
+                    SMOKING: smoking,
+                    YELLOW_FINGERS: yellowFinger,
+                    ANXIETY: anxiety,
+                    PEER_PRESSURE: peerPressure,
+                    "CHRONIC DISEASE": chronicDisease,
+                    FATIGUE: fatigue,
+                    ALLERGY: allergy,
+                    WHEEZING: wheezing,
+                    "ALCOHOL CONSUMING": alchoholUse,
+                    COUGHING: coughing,
+                    "SHORTNESS OF BREATH": shortnessOfBreath,
+                    "SWALLOWING DIFFICULTY": swallowingDifficulty,
+                    "CHEST PAIN": chestPain,
                   }
                 );
                 resp.data.result === "Non-Diabetic"
