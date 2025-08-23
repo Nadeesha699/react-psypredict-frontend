@@ -123,6 +123,7 @@ const MigraineCheck = () => {
                 setLocation(e.target.value);
               }}
             >
+              <option value={0}>Select</option>
               <option value={1}>One side of head (unilateral)</option>
               <option value={2}>Both sides (bilateral)</option>
               <option value={3}>Back of head</option>
@@ -145,6 +146,7 @@ const MigraineCheck = () => {
                 setCharacter(e.target.value);
               }}
             >
+              <option value={0}>Select</option>
               <option value={1}>Throbbing / pulsating</option>
               <option value={2}>Pressure / tight band</option>
               <option value={3}>Stabbing / sharp</option>
