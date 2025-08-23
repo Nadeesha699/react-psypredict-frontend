@@ -371,28 +371,28 @@ const LungCancerCheck = () => {
                     "CHEST PAIN": chestPain,
                   }
                 );
-                resp.data.result === "Non-Diabetic"
+                resp.data.result === "No Signs-Lung Cancer"
                   ? Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "You are likely not diabetic. Keep maintaining a healthy lifestyle!",
+                      title: "Lung Cancer Check Resultt",
+                      text: "You are unlikely to have lung cancer. Keep maintaining a healthy lifestyle! If you have concerns, please consult a doctor.",
                       icon: "success",
                     })
-                  : resp.data.result === "Diabetic"
+                  : resp.data.result === "Positive-Lung Cancer"
                   ? Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "You may have diabetes. Please consult a doctor for proper diagnosis.",
+                      title: "Lung Cancer Check Result",
+                      text: "You may have signs of lung cancer. Please consult a medical professional for further diagnosis.",
                       icon: "warning",
                     })
                   : Swal.fire({
-                      title: "Diabetes Check Result",
-                      text: "Unable to determine your diabetes status. Please check your inputs.",
+                      title: "Lung Cancer Check Resultt",
+                      text: "Unable to determine your lung cancer status. Please check your inputs and try again.",
                       icon: "info",
                     });
               } catch (e) {
                 console.log(e.message);
                 Swal.fire({
-                  title: "Diabetes Check Result",
-                  text: "Unable to determine your diabetes status. Please check your inputs.",
+                  title: "Lung Cancer Check Result",
+                  text: "Unable to determine your lung cancer status. Please check your inputs and try again.",
                   icon: "info",
                 });
               }
