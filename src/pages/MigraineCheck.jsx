@@ -33,7 +33,7 @@ const MigraineCheck = () => {
   const [dpf, setDPF] = useState(0);
 
   return (
-    <div className="bg-gray-900 h-full flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
       <div className="w-3/4 flex flex-col gap-10">
         <div className="flex flex-row gap-10 justify-start items-center">
           <BsArrowLeftCircle
@@ -48,7 +48,8 @@ const MigraineCheck = () => {
           </label>
         </div>
         <div className="flex flex-col gap-5 ">
-          <div className="flex flex-col">
+          <div className="flex flex-row gap-10">
+          <div className="flex flex-col w-full">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">Duration</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -68,7 +69,7 @@ const MigraineCheck = () => {
               }}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">Frequency</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -88,11 +89,13 @@ const MigraineCheck = () => {
               }}
             />
           </div>
-          <div className="flex flex-col">
+          </div>
+          <div className="flex flex-row gap-10">
+          <div className="flex flex-col w-full">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">Intensity</label>
               <FaQuestionCircle color="white" className="cursor-white" />
-              <span className="text-indigo-600"> {duration}</span>
+              <span className="text-indigo-600"> {intensity}</span>
               <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
                 How strong is the headache ? ( 1 = mild, 5 = severe )
               </div>
@@ -108,7 +111,7 @@ const MigraineCheck = () => {
               }}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">Location</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -117,7 +120,7 @@ const MigraineCheck = () => {
               </div>
             </div>
             <select
-              className="w-1/2 rounded-3xl"
+              className="rounded-3xl"
               value={location}
               onChange={(e) => {
                 setLocation(e.target.value);
@@ -130,8 +133,8 @@ const MigraineCheck = () => {
               <option value={4}>Front / forehead</option>
               <option value={5}>Around eyes / temple</option>
             </select>
-          </div>
-          <div className="flex flex-col">
+          </div> 
+          <div className="flex flex-col w-full">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">Character</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -140,7 +143,7 @@ const MigraineCheck = () => {
               </div>
             </div>
             <select
-              className="w-1/2 rounded-3xl"
+              className="rounded-3xl"
               value={character}
               onChange={(e) => {
                 setCharacter(e.target.value);
@@ -154,7 +157,8 @@ const MigraineCheck = () => {
               <option value={5}>Mixed / other</option>
             </select>
           </div>
-          <div className="flex flex-row">
+          </div>
+          <div className="flex flex-row gap-10">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Nausea</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -185,8 +189,6 @@ const MigraineCheck = () => {
                 }}
               />
             </div>
-          </div>
-          <div className="flex flex-row">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Phonophobia</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -218,7 +220,7 @@ const MigraineCheck = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row gap-10">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Visual</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -249,8 +251,6 @@ const MigraineCheck = () => {
                 }}
               />
             </div>
-          </div>
-          <div className="flex flex-row">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Dysphasia</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -282,7 +282,7 @@ const MigraineCheck = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row gap-10">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Vertigo</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -313,9 +313,7 @@ const MigraineCheck = () => {
                 }}
               />
             </div>
-          </div>
-          <div className="flex flex-row">
-            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Hypoacusis</label>
               <FaQuestionCircle color="white" className="cursor-white" />
               <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
@@ -346,7 +344,7 @@ const MigraineCheck = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-row gap-10">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Defect</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -377,9 +375,7 @@ const MigraineCheck = () => {
                 }}
               />
             </div>
-          </div>
-          <div className="flex flex-row">
-            <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Conscience</label>
               <FaQuestionCircle color="white" className="cursor-white" />
               <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
@@ -396,7 +392,7 @@ const MigraineCheck = () => {
             </div>
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
               <label className="text-white font-bold">Paresthesia</label>
-              <FaQuestionCircle color="white" className="cursor-white" />
+              <FaQuestionCircle color="white" className="cursor-pointer" />
               <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
                 Pins & needles sensation
               </div>
@@ -410,7 +406,8 @@ const MigraineCheck = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-row gap-10">
+          <div className="flex flex-col w-full">
             <label className="text-white font-bold">
               Age <span className="text-indigo-600">{age}</span>
             </label>
@@ -425,7 +422,7 @@ const MigraineCheck = () => {
               }}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">DPF</label>
               <FaQuestionCircle color="white" className="cursor-white" />
@@ -446,8 +443,9 @@ const MigraineCheck = () => {
               }}
             />
           </div>
+          </div>
           <button
-            className="bg-indigo-600 p-2 rounded-3xl font-bold w-1/6 text-white"
+            className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white"
             onClick={async () => {
               try {
                 const resp = await axios.post(
@@ -521,10 +519,15 @@ const MigraineCheck = () => {
                     });
               } catch (e) {
                 console.log(e.message);
+                // Swal.fire({
+                //   title: "Migraine Check Result",
+                //   text: "Unable to determine your migraine type. Please review your inputs.",
+                //   icon: "info",
+                // });
                 Swal.fire({
-                  title: "Migraine Check Result",
-                  text: "Unable to determine your migraine type. Please review your inputs.",
-                  icon: "info",
+                  title: "Server Error",
+                  text: "We could not connect to the server. Please try again later or check your internet connection.",
+                  icon: "error",
                 });
               }
             }}

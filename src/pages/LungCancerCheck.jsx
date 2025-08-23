@@ -8,7 +8,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 const LungCancerCheck = () => {
   const navigate = useNavigate();
   const [smoking, setSmoking] = useState(0);
-  const [age,setAge] = useState(0);
+  const [age, setAge] = useState(0);
   const [gender, setGender] = useState(0);
   const [yellowFinger, setYellowFinger] = useState(0);
   const [anxiety, setAnxiety] = useState(0);
@@ -55,17 +55,19 @@ const LungCancerCheck = () => {
               </select>
             </div>
             <div className="flex flex-col w-full">
-                <label className="text-white font-bold">Age <span>{age}</span></label>
-               <input
-              className="accent-indigo-700"
-              type="range"
-              min="1"
-              max="120"
-              value={age}
-              onChange={(e) => {
-                setAge(e.target.value);
-              }}
-            />
+              <label className="text-white font-bold">
+                Age <span>{age}</span>
+              </label>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="1"
+                max="120"
+                value={age}
+                onChange={(e) => {
+                  setAge(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="flex flex-row gap-10">
@@ -346,9 +348,9 @@ const LungCancerCheck = () => {
               </select>
             </div>
           </div>
-          
+
           <button
-            className="bg-indigo-600 p-2 rounded-3xl font-bold w-1/6 text-white"
+            className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white"
             onClick={async () => {
               try {
                 const resp = await axios.post(
@@ -390,10 +392,15 @@ const LungCancerCheck = () => {
                     });
               } catch (e) {
                 console.log(e.message);
+                // Swal.fire({
+                //   title: "Lung Cancer Check Result",
+                //   text: "Unable to determine your lung cancer status. Please check your inputs and try again.",
+                //   icon: "info",
+                // });
                 Swal.fire({
-                  title: "Lung Cancer Check Result",
-                  text: "Unable to determine your lung cancer status. Please check your inputs and try again.",
-                  icon: "info",
+                  title: "Server Error",
+                  text: "We could not connect to the server. Please try again later or check your internet connection.",
+                  icon: "error",
                 });
               }
             }}

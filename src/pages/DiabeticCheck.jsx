@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { FaQuestionCircle } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
@@ -32,131 +33,183 @@ const DiabeticCheck = () => {
           </label>
         </div>
         <div className="flex flex-col gap-5 ">
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Number of Pregnancies{" "}
-              <span className="text-indigo-600">{preg}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="20"
-              value={preg}
-              onChange={(e) => {
-                setPreg(e.target.value);
-              }}
-            />
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">
+                  Number of Pregnancies
+                </label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {preg}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Number of times you have been pregnant.
+                </div>
+              </div>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="0"
+                max="20"
+                value={preg}
+                onChange={(e) => {
+                  setPreg(e.target.value);
+                }}
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Glucose Level</label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {glu}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Plasma glucose concentration after 2 hours in an oral glucose
+                  tolerance test.
+                </div>
+              </div>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="0"
+                max="300"
+                value={glu}
+                onChange={(e) => {
+                  setGlu(e.target.value);
+                }}
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Glucose Level <span className="text-indigo-600">{glu}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="300"
-              value={glu}
-              onChange={(e) => {
-                setGlu(e.target.value);
-              }}
-            />
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">
+                  Blood Pressure (mmHg)
+                </label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {blpres}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Diastolic blood pressure (mm Hg). Normal is around 80.
+                </div>
+              </div>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="40"
+                max="200"
+                value={blpres}
+                onChange={(e) => {
+                  setBlPres(e.target.value);
+                }}
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">
+                  Skin Thickness (mm)
+                </label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {skthick}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Triceps skinfold thickness (mm)
+                </div>
+              </div>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="0"
+                max="100"
+                value={skthick}
+                onChange={(e) => {
+                  setSkThik(e.target.value);
+                }}
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Blood Pressure (mmHg){" "}
-              <span className="text-indigo-600">{blpres}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="40"
-              max="200"
-              value={blpres}
-              onChange={(e) => {
-                setBlPres(e.target.value);
-              }}
-            />
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">Insulin</label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {insulin}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  2-hour serum insulin (mu U/ml).
+                </div>
+              </div>
+              <input
+                className="bg-white rounded-3xl p-1"
+                placeholder="0 - 900"
+                type="number"
+                value={insulin}
+                onChange={(e) => {
+                  setInsulin(e.target.value);
+                }}
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <label className="text-white font-bold"></label>
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">
+                  Diabetes Pedigree Score
+                </label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {diafun}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  A score indicating family history of diabetes (higher means
+                  greater risk)
+                </div>
+              </div>
+              <input
+                className="bg-white rounded-3xl p-1"
+                type="number"
+                step="0.01"
+                placeholder="e.g. 0.234"
+                value={diafun}
+                onChange={(e) => {
+                  setDiaFun(e.target.value);
+                }}
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Skin Thickness (mm){" "}
-              <span className="text-indigo-600">{skthick}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="100"
-              value={skthick}
-              onChange={(e) => {
-                setSkThik(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Insulin Level (µU/ml)
-            </label>
-            <input
-              className="bg-white rounded-3xl p-2 w-1/2"
-              placeholder="0 - 900"
-              type="number"
-              value={insulin}
-              onChange={(e) => {
-                setInsulin(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              BMI <span className="text-indigo-600">{bmi}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="10"
-              max="70"
-              step="0.1"
-              value={bmi}
-              onChange={(e) => {
-                setBmi(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Diabetes Pedigree Score
-            </label>
-            <input
-              className="bg-white rounded-3xl p-1 w-1/2"
-              type="number"
-              step="0.01"
-              placeholder="e.g. 0.234"
-              value={diafun}
-              onChange={(e) => {
-                setDiaFun(e.target.value);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-white font-bold">
-              Age <span className="text-indigo-600">{age}</span>
-            </label>
-            <input
-              className="accent-indigo-700"
-              type="range"
-              min="0"
-              max="120"
-              value={age}
-              onChange={(e) => {
-                setAge(e.target.value);
-              }}
-            />
+          <div className="flex flex-row gap-10">
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
+                <label className="text-white font-bold">BMI</label>
+                <FaQuestionCircle className="cursor-pointer" color="white" />
+                <span className="text-indigo-600"> {bmi}</span>
+                <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
+                  Body Mass Index (weight in kg / height in m²). Healthy range:
+                  18.5–24.9.
+                </div>
+              </div>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="10"
+                max="70"
+                step="0.1"
+                value={bmi}
+                onChange={(e) => {
+                  setBmi(e.target.value);
+                }}
+              />
+            </div>
+            <div className="flex flex-col w-full">
+              <label className="text-white font-bold">
+                Age <span className="text-indigo-600">{age}</span>
+              </label>
+              <input
+                className="accent-indigo-700"
+                type="range"
+                min="0"
+                max="120"
+                value={age}
+                onChange={(e) => {
+                  setAge(e.target.value);
+                }}
+              />
+            </div>
           </div>
           <button
-            className="bg-indigo-600 p-2 rounded-3xl font-bold w-1/6 text-white"
+            className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white"
             onClick={async () => {
               try {
                 const resp = await axios.post(
@@ -191,10 +244,15 @@ const DiabeticCheck = () => {
                     });
               } catch (e) {
                 console.log(e.message);
+                // Swal.fire({
+                //   title: "Diabetes Check Result",
+                //   text: "Unable to determine your diabetes status. Please check your inputs.",
+                //   icon: "info",
+                // });
                 Swal.fire({
-                  title: "Diabetes Check Result",
-                  text: "Unable to determine your diabetes status. Please check your inputs.",
-                  icon: "info",
+                  title: "Server Error",
+                  text: "We could not connect to the server. Please try again later or check your internet connection.",
+                  icon: "error",
                 });
               }
             }}
