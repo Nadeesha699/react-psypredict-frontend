@@ -13,13 +13,13 @@ const DiabeticCheck = () => {
   const [blpres, setBlPres] = useState(0);
   const [skthick, setSkThik] = useState(0);
   const [insulin, setInsulin] = useState("");
-  const [bmi, setBmi] = useState(0.0);
+  const [bmi, setBmi] = useState(0);
   const [diafun, setDiaFun] = useState("");
   const [age, setAge] = useState(0);
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className='bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10' >
+    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
           <ClipLoader color="blue" size={100} />{" "}
@@ -153,7 +153,6 @@ const DiabeticCheck = () => {
                       className="cursor-pointer"
                       color="white"
                     />
-                    <span className="text-indigo-600"> {insulin}</span>
                     <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
                       2-hour serum insulin (mu U/ml).
                     </div>
@@ -178,7 +177,6 @@ const DiabeticCheck = () => {
                       className="cursor-pointer"
                       color="white"
                     />
-                    <span className="text-indigo-600"> {diafun}</span>
                     <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
                       A score indicating family history of diabetes (higher
                       means greater risk)
@@ -243,6 +241,23 @@ const DiabeticCheck = () => {
                 onClick={async () => {
                   setLoading(true);
                   try {
+                    if (
+                      preg === 0 ||
+                      glu === 0 ||
+                      blpres === 0 ||
+                      skthick === 0 ||
+                      insulin === "" ||
+                      bmi === 0 ||
+                      diafun === "" ||
+                      age === 0 
+                    ) {
+                      setLoading(false)
+                      Swal.fire({
+                      title: "Diabetes Check Result",
+                      text: "Unable to determine your diabetes status. Please check your inputs.",
+                      icon: "info",
+                    });
+                    }else{
                     const resp = await axios.post(
                       `http://127.0.0.1:5000/api/get-diabetic-prediction`,
                       {
@@ -273,15 +288,10 @@ const DiabeticCheck = () => {
                           title: "Diabetes Check Result",
                           text: "Unable to determine your diabetes status. Please check your inputs.",
                           icon: "info",
-                        });
+                        });}
                   } catch (e) {
                     setLoading(false);
                     console.log(e.message);
-                    // Swal.fire({
-                    //   title: "Diabetes Check Result",
-                    //   text: "Unable to determine your diabetes status. Please check your inputs.",
-                    //   icon: "info",
-                    // });
                     Swal.fire({
                       title: "Server Error",
                       text: "We could not connect to the server. Please try again later or check your internet connection.",

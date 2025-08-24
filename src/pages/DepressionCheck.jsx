@@ -392,73 +392,69 @@ const DepressionCheck = () => {
                   setLoading(true);
                   try {
                     if (
-                      gender === "" &&
-                      profession === "" &&
-                      academicPres === 0 &&
-                      workPres === 0 &&
-                      cgpa === 0 &&
-                      studySatis === 0 &&
-                      jobSatis === 0 &&
-                      sleepDur === "" &&
-                      dietaryH === "" &&
-                      sui === "" &&
-                      sHours === 0 &&
-                      finStress === 0 &&
-                      mIll === "" &&
+                      gender === "" ||
+                      profession === "" ||
+                      academicPres === 0 ||
+                      workPres === 0 ||
+                      cgpa === 0 ||
+                      studySatis === 0 ||
+                      jobSatis === 0 ||
+                      sleepDur === "" ||
+                      dietaryH === "" ||
+                      sui === "" ||
+                      sHours === 0 ||
+                      finStress === 0 ||
+                      mIll === "" ||
                       age === 0
                     ) {
-                      setLoading(false)
+                      setLoading(false);
                       Swal.fire({
                         title: "Depression Check Result",
                         text: "We couldn't determine your depression status. Please review your inputs and try again.",
                         icon: "info",
                       });
-                    }else{
-                    const resp = await axios.post(
-                      `http://127.0.0.1:5000/api/get-depression-predition`,
-                      {
-                        Gender: gender,
-                        Age: age,
-                        Profession: profession,
-                        "Academic Pressure": academicPres,
-                        "Work Pressure": workPres,
-                        CGPA: cgpa,
-                        "Study Satisfaction": studySatis,
-                        "Job Satisfaction": jobSatis,
-                        "Sleep Duration": sleepDur,
-                        "Dietary Habits": dietaryH,
-                        "Have you ever had suicidal thoughts ?": sui,
-                        "Work/Study Hours": sHours,
-                        "Financial Stress": finStress,
-                        "Family History of Mental Illness": mIll,
-                      }
-                    );
-                    setLoading(false);
-                    resp.data.result === "Non-Depression"
-                      ? Swal.fire({
-                          title: "Depression Check Result",
-                          text: "You are likely not Depression. Keep maintaining a healthy lifestyle!",
-                          icon: "success",
-                        })
-                      : resp.data.result === "Depression"
-                      ? Swal.fire({
-                          title: "Depression Check Result",
-                          text: "You may be experiencing signs of depression. Please consult a medical professional for proper guidance.",
-                          icon: "warning",
-                        })
-                      : Swal.fire({
-                          title: "Depression Check Result",
-                          text: "We couldn't determine your depression status. Please review your inputs and try again.",
-                          icon: "info",
-                        });}
+                    } else {
+                      const resp = await axios.post(
+                        `http://127.0.0.1:5000/api/get-depression-predition`,
+                        {
+                          Gender: gender,
+                          Age: age,
+                          Profession: profession,
+                          "Academic Pressure": academicPres,
+                          "Work Pressure": workPres,
+                          CGPA: cgpa,
+                          "Study Satisfaction": studySatis,
+                          "Job Satisfaction": jobSatis,
+                          "Sleep Duration": sleepDur,
+                          "Dietary Habits": dietaryH,
+                          "Have you ever had suicidal thoughts ?": sui,
+                          "Work/Study Hours": sHours,
+                          "Financial Stress": finStress,
+                          "Family History of Mental Illness": mIll,
+                        }
+                      );
+                      setLoading(false);
+                      resp.data.result === "Non-Depression"
+                        ? Swal.fire({
+                            title: "Depression Check Result",
+                            text: "You are likely not Depression. Keep maintaining a healthy lifestyle!",
+                            icon: "success",
+                          })
+                        : resp.data.result === "Depression"
+                        ? Swal.fire({
+                            title: "Depression Check Result",
+                            text: "You may be experiencing signs of depression. Please consult a medical professional for proper guidance.",
+                            icon: "warning",
+                          })
+                        : Swal.fire({
+                            title: "Depression Check Result",
+                            text: "We couldn't determine your depression status. Please review your inputs and try again.",
+                            icon: "info",
+                          });
+                    }
                   } catch (e) {
                     setLoading(false);
                     console.log(e.message);
-                    // Swal.fire({
-                    //   title: "Depression Check Result",
-                    //   text: "We couldn't determine your depression status. Please review your inputs and try again.",
-                    //   icon: "info",
-                    // });
                     Swal.fire({
                       title: "Server Error",
                       text: "We could not connect to the server. Please try again later or check your internet connection.",
@@ -476,13 +472,12 @@ const DepressionCheck = () => {
               What is Depression?
             </label>
             <p className="text-white text-justify">
-              Depression is a common
-              mental health disorder that affects the way a person thinks,
-              feels, and behaves. It goes beyond temporary feelings of sadness
-              and can interfere with daily life, work, and relationships. People
-              experiencing depression may have persistent low mood, loss of
-              interest in activities, changes in sleep or appetite, and
-              difficulty concentrating.
+              Depression is a common mental health disorder that affects the way
+              a person thinks, feels, and behaves. It goes beyond temporary
+              feelings of sadness and can interfere with daily life, work, and
+              relationships. People experiencing depression may have persistent
+              low mood, loss of interest in activities, changes in sleep or
+              appetite, and difficulty concentrating.
             </p>
             <p className="text-white text-justify">
               With proper support, treatment, and early prediction, depression
