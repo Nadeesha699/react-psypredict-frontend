@@ -80,7 +80,7 @@ const MigraineCheck = () => {
             <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
               <label className="text-white font-bold">Frequency</label>
               <FaQuestionCircle color="white" className="cursor-white" />
-              <span className="text-indigo-600"> {duration}</span>
+              <span className="text-indigo-600"> {frequency}</span>
               <div className="absolute left-6 bottom-full mb-2 hidden group-hover:block bg-gray-800 text-indigo-200 text-xs p-2 rounded-md shadow-md w-52">
                 How often headaches occur ? ( 1 = rare, 5 = very frequent )
               </div>
