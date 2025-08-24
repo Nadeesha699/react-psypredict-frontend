@@ -64,7 +64,7 @@ const LungCancerCheck = () => {
                 </div>
                 <div className="flex flex-col w-full">
                   <label className="text-white font-bold">
-                    Age <span>{age}</span>
+                    Age <span className="text-indigo-600">{age}</span>
                   </label>
                   <input
                     className="accent-indigo-700"
