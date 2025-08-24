@@ -36,7 +36,7 @@ const DepressionCheck = () => {
             <div className="flex flex-row gap-10 justify-start items-center">
               <BsArrowLeftCircle
                 size={40}
-                color="white"
+                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out"
                 onClick={() => {
                   navigate("/");
                 }}
@@ -387,7 +387,7 @@ const DepressionCheck = () => {
                 </div>
               </div>
               <button
-                className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white"
+                className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white hover:bg-white hover:text-black transition duration-300 ease-in-out"
                 onClick={async () => {
                   setLoading(true);
                   try {

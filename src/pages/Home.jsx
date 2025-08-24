@@ -80,7 +80,7 @@ const Home = () => {
       </div>
       <div className="w-full flex  justify-end fixed bottom-10 right-10">
         <FaQuestionCircle
-          color="white"
+          className="text-white hover:text-indigo-600 transition duration-300 ease-in-out"
           size={20}
           onClick={() => {
             navigate("/about");

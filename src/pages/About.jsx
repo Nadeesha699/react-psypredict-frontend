@@ -13,7 +13,7 @@ const About = () => {
     <div className="bg-gray-900 h-dvh flex flex-row">
       <div className="flex flex-col gap-20 p-10">
         <div className="flex flex-row gap-10 justify-start items-center">
-          <BsArrowLeftCircle size={40} color="white" onClick={()=>{navigate('/')}}/>
+          <BsArrowLeftCircle size={40} className="text-white hover:text-indigo-600 transition duration-300 ease-in-out" onClick={()=>{navigate('/')}}/>
           <label className="font-bold text-5xl text-indigo-600">About</label>
         </div>
         <div className="flex flex-col gap-10">
@@ -44,22 +44,22 @@ const About = () => {
             recommendations to consult a healthcare professional if needed.
           </label>
         </div>
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between bg-black/50 p-5 rounded-full">
           <div className="flex flex-row justify-center items-center gap-1">
             <FaLinkedin className="text-blue-500"/>
-            <a className="text-blue-500 text-xs font-bold" href="https://www.linkedin.com/in/nadeesha-ruwandima-b5a356259/">Nadeesha Ruwandima</a>
+            <a className="text-blue-500 text-xs font-bold hover:text-white transition duration-300 ease-in-out" href="https://www.linkedin.com/in/nadeesha-ruwandima-b5a356259/">Nadeesha Ruwandima</a>
           </div>
           <div className="flex flex-row justify-center items-center gap-1">
             <FaGithub className="text-purple-500"/>
-            <a className="text-purple-500 text-xs font-bold" href="https://github.com/Nadeesha699">Nadeesha699</a>
+            <a className="text-purple-500 text-xs font-bold hover:text-white transition duration-300 ease-in-out" href="https://github.com/Nadeesha699">Nadeesha699</a>
           </div>
           <div className="flex flex-row justify-center items-center gap-1">
             <FaGlobe className="text-cyan-500"/>
-            <a className="text-cyan-500 text-xs font-bold" href="https://nadeesha699.github.io/nadeesha-ruwandima/">Nadeesha Ruwandima</a>
+            <a className="text-cyan-500 text-xs font-bold hover:text-white transition duration-300 ease-in-out" href="https://nadeesha699.github.io/nadeesha-ruwandima/">Nadeesha Ruwandima</a>
           </div>
           <div className="flex flex-row justify-center items-center gap-1">
             <FiMail className="text-red-500"/>
-            <a className="text-red-500 text-xs font-bold" href="mailto:nadeesharuwandima@gmail.com">nadeesharuwandima@gmail.com</a>
+            <a className="text-red-500 text-xs font-bold hover:text-white transition duration-300 ease-in-out" href="mailto:nadeesharuwandima@gmail.com">nadeesharuwandima@gmail.com</a>
           </div>
         </div>
       </div>
