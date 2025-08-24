@@ -1,6 +1,11 @@
 import { BsArrowLeftCircle } from "react-icons/bs";
 import AboutImage from "../images/about-image.jpg";
 import { useNavigate } from "react-router";
+import { FaChrome, FaGithub, FaGlobe, FaLinkedin, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FaLink, FaWebflow } from "react-icons/fa6";
+import { GiMailbox } from "react-icons/gi";
+import { CgMail } from "react-icons/cg";
+import { FiMail } from "react-icons/fi";
 
 const About = () => {
   const navigate = useNavigate()
@@ -38,6 +43,24 @@ const About = () => {
             the data, and receive a risk estimate for each condition along with
             recommendations to consult a healthcare professional if needed.
           </label>
+        </div>
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-row justify-center items-center gap-1">
+            <FaLinkedin className="text-blue-500"/>
+            <a className="text-blue-500 text-xs font-bold" href="https://www.linkedin.com/in/nadeesha-ruwandima-b5a356259/">Nadeesha Ruwandima</a>
+          </div>
+          <div className="flex flex-row justify-center items-center gap-1">
+            <FaGithub className="text-purple-500"/>
+            <a className="text-purple-500 text-xs font-bold" href="https://github.com/Nadeesha699">Nadeesha699</a>
+          </div>
+          <div className="flex flex-row justify-center items-center gap-1">
+            <FaGlobe className="text-cyan-500"/>
+            <a className="text-cyan-500 text-xs font-bold" href="https://nadeesha699.github.io/nadeesha-ruwandima/">Nadeesha Ruwandima</a>
+          </div>
+          <div className="flex flex-row justify-center items-center gap-1">
+            <FiMail className="text-red-500"/>
+            <a className="text-red-500 text-xs font-bold" href="mailto:nadeesharuwandima@gmail.com">nadeesharuwandima@gmail.com</a>
+          </div>
         </div>
       </div>
       <img src={AboutImage} alt="about-image"/>
