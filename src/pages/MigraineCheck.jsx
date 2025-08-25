@@ -34,28 +34,27 @@ const MigraineCheck = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-full flex flex-col justify-between p-10 gap-10 lg:flex-row 2xl:h-dvh">
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
           <ClipLoader color="blue" size={100} />{" "}
         </div>
       ) : (
         <>
-          <div className="w-3/4 flex flex-col gap-10">
-            <div className="flex flex-row gap-10 justify-start items-center">
+          <div className="lg:w-3/4 w-full flex flex-col gap-10">
+            <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
               <BsArrowLeftCircle
-                size={40}
-                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out"
+                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out text-2xl sm:text-4xl"
                 onClick={() => {
                   navigate("/");
                 }}
               />
-              <label className="font-bold text-5xl text-indigo-600">
+              <label className="font-bold text-2xl sm:text-5xl text-indigo-600">
                 Migraine Checker
               </label>
             </div>
             <div className="flex flex-col gap-5 ">
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Duration</label>
@@ -99,7 +98,7 @@ const MigraineCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Intensity</label>
@@ -167,7 +166,7 @@ const MigraineCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
                   <label className="text-white font-bold">Nausea</label>
                   <FaQuestionCircle color="white" className="cursor-white" />
@@ -229,7 +228,7 @@ const MigraineCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
                   <label className="text-white font-bold">Visual</label>
                   <FaQuestionCircle color="white" className="cursor-white" />
@@ -291,7 +290,7 @@ const MigraineCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
                   <label className="text-white font-bold">Vertigo</label>
                   <FaQuestionCircle color="white" className="cursor-white" />
@@ -353,7 +352,7 @@ const MigraineCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-row justify-left items-center gap-2 relative inline-block group w-1/2">
                   <label className="text-white font-bold">Defect</label>
                   <FaQuestionCircle color="white" className="cursor-white" />
@@ -415,7 +414,7 @@ const MigraineCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <label className="text-white font-bold">
                     Age <span className="text-indigo-600">{age}</span>
@@ -560,24 +559,24 @@ const MigraineCheck = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/4 flex flex-col gap-5">
-            <label className="font-bold text-3xl text-indigo-600">
+          <div className="w-full lg:w-1/4 flex flex-col gap-5">
+            <label className="font-bold text-2xl sm:text-3xl text-indigo-600 text-center sm:text-left">
               What is Migraine?
             </label>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               Migraine is a neurological condition that causes intense,
               throbbing headaches, often on one side of the head. These
               headaches can last from a few hours to several days and are
               commonly accompanied by nausea, vomiting, and extreme sensitivity
               to light or sound.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               Triggers for migraines can include stress, lack of sleep, certain
               foods, hormonal changes, or environmental factors. Some people
               experience an “aura” before a migraine, which may involve visual
               disturbances, tingling sensations, or difficulty speaking.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               While there is no cure for migraines, treatments such as
               medications, lifestyle changes, and trigger management can help
               reduce their frequency and severity. Our tool aims to assess your

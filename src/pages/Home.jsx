@@ -8,19 +8,19 @@ import { useNavigate } from "react-router";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-gray-900 h-dvh flex flex-col justify-between p-10">
+    <div className="bg-gray-900 h-full flex flex-col justify-between p-10 gap-10 sm:h-dvh">
       <div className="flex flex-col gap-10 items-center">
         <label className="font-bold text-5xl text-indigo-600">
           Psy<span className="text-white">Predict</span>
         </label>
-        <label className="text-white text-xs text-center w-1/2">
+        <label className="text-white text-xs text-center w-full sm:w-1/2">
           Our AI-powered health prediction tool helps you assess the risk of
           migraine, diabetes, lung cancer, and depression. Simply enter your
           symptoms, and our model provides instant, data-driven insights to
           support early detection and prevention.
         </label>
       </div>
-      <div className="flex flex-row justify-evenly">
+      <div className="flex flex-col justify-evenly items-center gap-10 sm:flex-row">
         <div
           className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
           onClick={() => {
@@ -32,7 +32,7 @@ const Home = () => {
             alt="depression-image"
             className="w-1/2 h-1/2"
           />
-          <label className="text-white text-sm font-bold">
+          <label className="text-white text-sm font-bold text-center">
             Depression Checker
           </label>
         </div>
@@ -47,7 +47,7 @@ const Home = () => {
             alt="migraine-image"
             className="w-1/2 h-1/2"
           />
-          <label className="text-white text-sm font-bold">Migraine Checker</label>
+          <label className="text-white text-sm font-bold text-center">Migraine Checker</label>
         </div>
         <div
           className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
@@ -60,7 +60,7 @@ const Home = () => {
             alt="diabetic-image"
             className="w-1/2 h-1/2"
           />
-          <label className="text-white text-sm font-bold">Diabetes Checker</label>
+          <label className="text-white text-sm font-bold text-center">Diabetes Checker</label>
         </div>
         <div
           className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
@@ -73,7 +73,7 @@ const Home = () => {
             alt="lungcancer-image"
             className="w-1/2 h-1/2"
           />
-          <label className="text-white text-sm font-bold">
+          <label className="text-white text-sm font-bold text-center">
            Lungcancer Checker
           </label>
         </div>

@@ -19,28 +19,27 @@ const DiabeticCheck = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-full flex flex-col justify-between p-10 gap-10  lg:flex-row 2xl:h-dvh">
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
           <ClipLoader color="blue" size={100} />{" "}
         </div>
       ) : (
         <>
-          <div className="w-3/4 flex flex-col gap-10">
-            <div className="flex flex-row gap-10 justify-start items-center">
+          <div className="lg:w-3/4 w-full flex flex-col gap-10">
+            <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
               <BsArrowLeftCircle
-                size={40}
-                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out"
+                className="text-2xl sm:text-4xl text-white hover:text-indigo-600 transition duration-300 ease-in-out"
                 onClick={() => {
                   navigate("/");
                 }}
               />
-              <label className="font-bold text-5xl text-indigo-600">
+              <label className="font-bold text-2xl sm:text-5xl text-indigo-600">
                 Diabetes Checker
               </label>
             </div>
             <div className="flex flex-col gap-5 ">
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -93,7 +92,7 @@ const DiabeticCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -145,7 +144,7 @@ const DiabeticCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Insulin</label>
@@ -194,7 +193,7 @@ const DiabeticCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">BMI</label>
@@ -304,25 +303,25 @@ const DiabeticCheck = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/4 flex flex-col gap-5">
-            <label className="font-bold text-3xl text-indigo-600">
+          <div className="w-full lg:w-1/4 flex flex-col gap-5">
+            <label className="font-bold text-2xl sm:text-3xl text-indigo-600 text-center sm:text-left">
               What is Diabetic?
             </label>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               Diabetes is a long-term health condition that occurs when the body
               cannot properly regulate blood sugar (glucose) levels. It happens
               either because the body does not produce enough insulin or cannot
               effectively use the insulin it makes. Insulin is the hormone
               responsible for helping glucose enter cells to provide energy.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               There are different types of diabetes, including Type 1, Type 2,
               and gestational diabetes. Common symptoms include excessive
               thirst, frequent urination, fatigue, and slow healing of wounds.
               If left unmanaged, diabetes can lead to serious complications
               affecting the heart, kidneys, nerves, and eyes.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               With early detection, healthy lifestyle choices, and proper
               treatment, diabetes can be effectively managed to maintain a good
               quality of life. Our tool helps assess your risk by analyzing key

@@ -25,28 +25,27 @@ const DepressionCheck = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-full flex flex-col justify-between p-10 gap-10 lg:flex-row 2xl:h-dvh">
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
-          <ClipLoader color="blue" size={100} />{" "}
+          <ClipLoader color="blue" size={100} />
         </div>
       ) : (
         <>
-          <div className="w-3/4 flex flex-col gap-10">
-            <div className="flex flex-row gap-10 justify-start items-center">
+          <div className="lg:w-3/4 w-full flex flex-col gap-10">
+            <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
               <BsArrowLeftCircle
-                size={40}
-                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out"
+                className="text-2xl sm:text-4xl text-white hover:text-indigo-600 transition duration-300 ease-in-out"
                 onClick={() => {
                   navigate("/");
                 }}
               />
-              <label className="font-bold text-5xl text-indigo-600">
+              <label className="font-bold text-2xl sm:text-5xl text-indigo-600">
                 Depression Checker
               </label>
             </div>
-            <div className="flex flex-col gap-5 ">
-              <div className="flex flex-row gap-10">
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <label className="text-white font-bold">Gender</label>
                   <select
@@ -78,7 +77,7 @@ const DepressionCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -130,7 +129,7 @@ const DepressionCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">CGPA</label>
@@ -182,7 +181,7 @@ const DepressionCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -225,7 +224,7 @@ const DepressionCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -280,7 +279,7 @@ const DepressionCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -333,7 +332,7 @@ const DepressionCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -467,11 +466,11 @@ const DepressionCheck = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/4 flex flex-col gap-5">
-            <label className="font-bold text-3xl text-indigo-600">
+          <div className="w-full lg:w-1/4 flex flex-col gap-5">
+            <label className="font-bold text-2xl sm:text-3xl text-indigo-600 text-center sm:text-left">
               What is Depression?
             </label>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               Depression is a common mental health disorder that affects the way
               a person thinks, feels, and behaves. It goes beyond temporary
               feelings of sadness and can interfere with daily life, work, and
@@ -479,7 +478,7 @@ const DepressionCheck = () => {
               low mood, loss of interest in activities, changes in sleep or
               appetite, and difficulty concentrating.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               With proper support, treatment, and early prediction, depression
               can be managed effectively. Our tool helps identify the risk of
               depression by analyzing your responses and lifestyle factors.

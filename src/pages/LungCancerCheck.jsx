@@ -26,28 +26,27 @@ const LungCancerCheck = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="bg-gray-900 h-dvh flex flex-row justify-between p-10 gap-10">
+    <div className="bg-gray-900 h-full flex flex-col justify-between p-10 gap-10 lg:flex-row 2xl:h-dvh">
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
           <ClipLoader color="blue" size={100} />{" "}
         </div>
       ) : (
         <>
-          <div className="w-3/4 flex flex-col gap-10">
-            <div className="flex flex-row gap-10 justify-start items-center">
+          <div className="lg:w-3/4 w-full flex flex-col gap-10">
+            <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
               <BsArrowLeftCircle
-                size={40}
-                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out"
+                className="text-2xl sm:text-4xl text-white hover:text-indigo-600 transition duration-300 ease-in-out"
                 onClick={() => {
                   navigate("/");
                 }}
               />
-              <label className="font-bold text-5xl text-indigo-600">
+              <label className="font-bold text-2xl sm:text-5xl text-indigo-600">
                 Lungcancer Checker
               </label>
             </div>
             <div className="flex flex-col gap-5 ">
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <label className="text-white font-bold">Gender</label>
                   <select
@@ -78,7 +77,7 @@ const LungCancerCheck = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -122,7 +121,7 @@ const LungCancerCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">
@@ -169,7 +168,7 @@ const LungCancerCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Fatigue</label>
@@ -211,7 +210,7 @@ const LungCancerCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Wheezing</label>
@@ -253,7 +252,7 @@ const LungCancerCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Coughing</label>
@@ -298,7 +297,7 @@ const LungCancerCheck = () => {
                   </select>
                 </div>
               </div>
-              <div className="flex flex-row gap-10">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
                   <div className="flex flex-row justify-left items-center gap-2 relative inline-block group">
                     <label className="text-white font-bold">Smoking</label>
@@ -362,7 +361,6 @@ const LungCancerCheck = () => {
                   </select>
                 </div>
               </div>
-
               <button
                 className="bg-indigo-600 p-2 rounded-3xl font-bold w-full text-white hover:bg-white hover:text-black transition duration-300 ease-in-out"
                 onClick={async () => {
@@ -446,17 +444,17 @@ const LungCancerCheck = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/4 flex flex-col gap-5">
-            <label className="font-bold text-3xl text-indigo-600">
+          <div className="w-full lg:w-1/4 flex flex-col gap-5">
+            <label className="font-bold text-2xl sm:text-3xl text-indigo-600 text-center sm:text-left">
               What is Lung Cancer?
             </label>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               Lung cancer is a disease in which abnormal cells in the lungs grow
               and multiply uncontrollably, forming tumors that can interfere
               with normal breathing and oxygen exchange. It is one of the most
               common types of cancer worldwide.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               The two main types are non–small cell lung cancer (NSCLC) and
               small cell lung cancer (SCLC). Risk factors include smoking,
               long-term exposure to harmful chemicals, and family history.
@@ -464,7 +462,7 @@ const LungCancerCheck = () => {
               shortness of breath, coughing up blood, and unexplained weight
               loss.
             </p>
-            <p className="text-white text-justify">
+            <p className="text-white text-center sm:text-justify">
               Early detection is key, as lung cancer can often spread before
               symptoms appear. With timely diagnosis, treatments such as
               surgery, radiation, chemotherapy, and targeted therapies can
