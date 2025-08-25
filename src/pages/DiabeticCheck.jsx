@@ -19,7 +19,7 @@ const DiabeticCheck = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="bg-gray-900 h-full flex flex-col justify-between p-10 gap-10  lg:flex-row 2xl:h-dvh">
+    <div className="h-full flex flex-col justify-between p-10 gap-10  lg:flex-row 2xl:h-dvh">
       {loading ? (
         <div className="w-full h-full flex justify-center items-center">
           <ClipLoader color="blue" size={100} />{" "}

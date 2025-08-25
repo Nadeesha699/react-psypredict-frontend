@@ -7,9 +7,9 @@ import { FiMail } from "react-icons/fi";
 const About = () => {
   const navigate = useNavigate()
   return (
-    <div className="bg-gray-900 h-full flex flex-col sm:flex-row 2xl:h-dvh">
+    <div className="h-full flex flex-col lg:flex-row 2xl:h-dvh">
       <div className="flex flex-col gap-20 p-10">
-        <div className="flex flex-row gap-10 justify-start items-center">
+        <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
           <BsArrowLeftCircle  className="text-white hover:text-indigo-600 transition duration-300 ease-in-out text-4xl" onClick={()=>{navigate('/')}}/>
           <label className="font-bold text-3xl sm:text-5xl text-indigo-600">About</label>
         </div>
@@ -41,7 +41,7 @@ const About = () => {
             recommendations to consult a healthcare professional if needed.
           </label>
         </div>
-        <div className="flex flex-col justify-between bg-black/50 p-5 rounded-md gap-10 md:flex-row md:rounded-full">
+        <div className="flex flex-col justify-between bg-black/50 p-5 rounded-md gap-10 lg:flex-row lg:rounded-full">
           <div className="flex flex-row justify-center items-center gap-1">
             <FaLinkedin className="text-blue-500"/>
             <a className="text-blue-500 text-xs font-bold hover:text-white transition duration-300 ease-in-out" href="https://www.linkedin.com/in/nadeesha-ruwandima-b5a356259/">Nadeesha Ruwandima</a>
@@ -60,7 +60,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <img src={AboutImage} alt="about-image" className="sm:w-1/2" />
+      <img src={AboutImage} alt="about-image" className="lg:w-1/2" />
     </div>
   );
 };

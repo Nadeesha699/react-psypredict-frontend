@@ -20,7 +20,7 @@ const Home = () => {
           support early detection and prevention.
         </label>
       </div>
-      <div className="flex flex-col justify-evenly items-center gap-10 sm:flex-row">
+      <div className="flex flex-col justify-evenly items-center gap-10 lg:flex-row">
         <div
           className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
           onClick={() => {
