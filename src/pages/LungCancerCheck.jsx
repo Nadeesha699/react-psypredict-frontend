@@ -1,13 +1,10 @@
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { useNavigate } from "react-router";
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaQuestionCircle } from "react-icons/fa";
-import { ClipLoader } from "react-spinners";
+import { LoadingPage, TittleComponet } from "../components/Components";
 
 const LungCancerCheck = () => {
-  const navigate = useNavigate();
   const [smoking, setSmoking] = useState(0);
   const [age, setAge] = useState(0);
   const [gender, setGender] = useState(0);
@@ -28,23 +25,11 @@ const LungCancerCheck = () => {
   return (
     <div className="h-full flex flex-col justify-between p-10 gap-10 lg:flex-row 2xl:h-dvh">
       {loading ? (
-        <div className="w-full h-full flex justify-center items-center">
-          <ClipLoader color="blue" size={100} />{" "}
-        </div>
+        <LoadingPage />
       ) : (
         <>
           <div className="lg:w-3/4 w-full flex flex-col gap-10">
-            <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
-              <BsArrowLeftCircle
-                className="text-2xl sm:text-4xl text-white hover:text-indigo-600 transition duration-300 ease-in-out"
-                onClick={() => {
-                  navigate("/");
-                }}
-              />
-              <label className="font-bold text-2xl sm:text-5xl text-indigo-600">
-                Lungcancer Checker
-              </label>
-            </div>
+            <TittleComponet name="Lungcancer Checker" />
             <div className="flex flex-col gap-5 ">
               <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">

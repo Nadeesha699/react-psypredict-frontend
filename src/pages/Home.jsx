@@ -1,9 +1,6 @@
 import { FaQuestionCircle } from "react-icons/fa";
-import DepressionImage from "../images/depression.png";
-import LungCancerImage from "../images/lung.png";
-import MigraineImage from "../images/migraine.png";
-import DiabeticImage from "../images/sugar.png";
 import { useNavigate } from "react-router";
+import { DiseaseData } from "../data/Data";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,62 +18,22 @@ const Home = () => {
         </label>
       </div>
       <div className="flex flex-col justify-evenly items-center gap-10 lg:flex-row">
-        <div
-          className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
-          onClick={() => {
-            navigate("/depression-check");
-          }}
-        >
-          <img
-            src={DepressionImage}
-            alt="depression-image"
-            className="w-1/2 h-1/2"
-          />
-          <label className="text-white text-sm font-bold text-center">
-            Depression Checker
-          </label>
-        </div>
-        <div
-          className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
-          onClick={() => {
-            navigate("/migraine-check");
-          }}
-        >
-          <img
-            src={MigraineImage}
-            alt="migraine-image"
-            className="w-1/2 h-1/2"
-          />
-          <label className="text-white text-sm font-bold text-center">Migraine Checker</label>
-        </div>
-        <div
-          className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
-          onClick={() => {
-            navigate("/diabetic-check");
-          }}
-        >
-          <img
-            src={DiabeticImage}
-            alt="diabetic-image"
-            className="w-1/2 h-1/2"
-          />
-          <label className="text-white text-sm font-bold text-center">Diabetes Checker</label>
-        </div>
-        <div
-          className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
-          onClick={() => {
-            navigate("/lungcancer-check");
-          }}
-        >
-          <img
-            src={LungCancerImage}
-            alt="lungcancer-image"
-            className="w-1/2 h-1/2"
-          />
-          <label className="text-white text-sm font-bold text-center">
-           Lungcancer Checker
-          </label>
-        </div>
+        {DiseaseData.map((e,index) => {
+          return (
+            <div
+            key={index}
+              className="border-4 border-indigo-600 w-40 h-40 flex flex-col p-2 justify-evenly items-center rounded-md hover:bg-indigo-600 transition duration-300 ease-in-out cursor-pointer"
+              onClick={() => {
+                navigate(e.naviagte);
+              }}
+            >
+              <img src={e.image} alt={e.alt} className="w-1/2 h-1/2" />
+              <label className="text-white text-sm font-bold text-center">
+                {e.name}
+              </label>
+            </div>
+          );
+        })}
       </div>
       <div className="w-full flex  justify-end fixed bottom-10 right-10">
         <FaQuestionCircle

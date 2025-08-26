@@ -1,18 +1,13 @@
-import { BsArrowLeftCircle } from "react-icons/bs";
 import AboutImage from "../images/about-image.jpg";
-import { useNavigate } from "react-router";
 import { FaGithub, FaGlobe, FaLinkedin} from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
+import { TittleComponet } from "../components/Components";
 
 const About = () => {
-  const navigate = useNavigate()
   return (
     <div className="h-full flex flex-col lg:flex-row 2xl:h-dvh">
       <div className="flex flex-col gap-20 p-10">
-        <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
-          <BsArrowLeftCircle  className="text-white hover:text-indigo-600 transition duration-300 ease-in-out text-4xl" onClick={()=>{navigate('/')}}/>
-          <label className="font-bold text-3xl sm:text-5xl text-indigo-600">About</label>
-        </div>
+       <TittleComponet name="About"/>
         <div className="flex flex-col gap-10">
           <label className="text-white font-bold text-center sm:text-justify">
             Welcome to our AI-powered health prediction tool, designed to

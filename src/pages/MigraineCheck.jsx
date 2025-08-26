@@ -1,13 +1,10 @@
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { useNavigate } from "react-router";
 import axios from "axios";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaQuestionCircle } from "react-icons/fa";
-import { ClipLoader } from "react-spinners";
+import { LoadingPage, TittleComponet } from "../components/Components";
 
 const MigraineCheck = () => {
-  const navigate = useNavigate();
   const [age, setAge] = useState(0);
   const [duration, setDuration] = useState(0);
   const [frequency, setFrequency] = useState(0);
@@ -36,23 +33,11 @@ const MigraineCheck = () => {
   return (
     <div className="h-full flex flex-col justify-between p-10 gap-10 lg:flex-row 2xl:h-dvh">
       {loading ? (
-        <div className="w-full h-full flex justify-center items-center">
-          <ClipLoader color="blue" size={100} />{" "}
-        </div>
+        <LoadingPage />
       ) : (
         <>
           <div className="lg:w-3/4 w-full flex flex-col gap-10">
-            <div className="flex flex-row sm:gap-10 gap-5 justify-start items-center">
-              <BsArrowLeftCircle
-                className="text-white hover:text-indigo-600 transition duration-300 ease-in-out text-2xl sm:text-4xl"
-                onClick={() => {
-                  navigate("/");
-                }}
-              />
-              <label className="font-bold text-2xl sm:text-5xl text-indigo-600">
-                Migraine Checker
-              </label>
-            </div>
+            <TittleComponet name="Migraine Checker" />
             <div className="flex flex-col gap-5 ">
               <div className="flex flex-col sm:flex-row gap-5 sm:gap-10">
                 <div className="flex flex-col w-full">
